@@ -5,6 +5,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import com.terraformersmc.modmenu.api.ModMenuApi;
 
+
 @Environment(EnvType.CLIENT)
 public class ConfigModManager implements ModMenuApi{
     @Override

@@ -10,7 +10,7 @@
 	"contact": {
 		"sources": "https://github.com/Tripp1e/IslesHelper"
 	},
-	"license": "GPL-3.0",
+	"license": "LGPL-3.0-or-later",
 	"icon": "assets/isleshelper/icon.png",
 	"environment": "client",
 	"entrypoints": {
