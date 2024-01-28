@@ -1,7 +1,6 @@
 package com.tripp1e.isleshelper.config;
 
 
-import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.tripp1e.isleshelper.IslesHelperClient;
 import com.tripp1e.isleshelper.config.categories.GeneralCategory;
 import com.tripp1e.isleshelper.mixin.HandledScreenAccessor;
@@ -11,7 +10,6 @@ import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
-import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 import net.fabricmc.fabric.api.client.screen.v1.Screens;
 import net.fabricmc.loader.api.FabricLoader;
@@ -52,7 +50,7 @@ public class ConfigManager {
 
     public static Screen createGUI(Screen parent) {
         return YetAnotherConfigLib.create(ConfigManager.HANDLER, (defaults, config, builder) -> builder
-                .title(Text.of("Test Title"))
+                .title(Text.of("IslesHelper Config"))
                 .category(GeneralCategory.create(defaults, config))).generateScreen(parent);
     }
 

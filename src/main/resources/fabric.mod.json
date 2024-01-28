@@ -10,12 +10,15 @@
 	"contact": {
 		"sources": "https://github.com/Tripp1e/IslesHelper"
 	},
-	"license": "GPL-3.0-or-later",
+	"license": "GPL-3.0",
 	"icon": "assets/isleshelper/icon.png",
 	"environment": "client",
 	"entrypoints": {
 		"client": [
 			"com.tripp1e.isleshelper.IslesHelperClient"
+		],
+		"modmenu": [
+			"com.tripp1e.isleshelper.config.ConfigModManager"
 		]
 	},
 	"mixins": [
@@ -27,5 +30,19 @@
 		"java": ">=17",
 		"fabric-api": "*",
 		"yet_another_config_lib_v3": "*"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"isles.discord": "https://discord.gg/isles"
+			},
+			"parent": {
+				"id": "isleshelper",
+				"name": "Isles Helper",
+				"description": "QoL Mod for Skyblock Isles",
+				"icon": "assets/isleshelper/icon.png"
+			},
+			"update_checker": true
+		}
 	}
 }

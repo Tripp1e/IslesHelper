@@ -6,6 +6,8 @@ import dev.isxander.yacl3.api.ConfigCategory;
 import dev.isxander.yacl3.api.Option;
 import net.minecraft.text.Text;
 
+
+// Modified Code from https://github.com/SkyblockerMod/Skyblocker/blob/master/src/main/java/de/hysky/skyblocker/config/categories/GeneralCatagory.java
 public class GeneralCategory {
     public static ConfigCategory create(ConfigManager defaults, ConfigManager config) {
         return ConfigCategory.createBuilder()
