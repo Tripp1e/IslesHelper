@@ -1,0 +1,37 @@
+# Isles Helper
+
+**Version:** 1.20.4
+
+## Description
+
+This mod is a very early Release. Contact me on Discord if you have any issues or any Feature Requests.
+
+QOL mod for Skyblock Isles that aims to make Boss Rush (more when the actual server releases) easier.
+
+## Features
+
+- Frog Belly Explosion Warning
+
+## Installation
+
+1. Download the latest version of Fabric Loader from [FabricMC](https://fabricmc.net/use/).
+2. Download the mod JAR file from the [release page](https://github.com/Tripp1e/IslesHelper/releases).
+3. Place the mod JAR file into the "mods" folder in your Minecraft installation directory.
+4. Launch the Minecraft Launcher with the Fabric profile.
+
+## Usage
+
+Config via ModMenu.
+
+## Notes
+
+This mod is in very early alpha. Feedback and bug reports are welcome.
+
+## Disclaimer
+
+This mod is purely client-side and is intended for use on the Skyblock Isles server. Make sure to follow the server rules and guidelines.
+
+## Copyright Notice
+
+This Project uses Code from Skyblocker[https://github.com/SkyblockerMod/](https://github.com/SkyblockerMod/) in ConfigManager.java and GeneralCategory.java
+It is modified to fit into my project, which includes changing the Location of certain functions and reducing the complexity.
