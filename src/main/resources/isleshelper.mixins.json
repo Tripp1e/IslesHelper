@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "com.tripp1e.isleshelper.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+      "IslesHelperMixin",
+	  "HandledScreenAccessor"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
