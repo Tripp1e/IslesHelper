@@ -15,9 +15,10 @@ QOL mod for Skyblock Isles that aims to make Boss Rush (more when the actual ser
 ## Installation
 
 1. Download the latest version of Fabric Loader from [FabricMC](https://fabricmc.net/use/).
-2. Download the mod JAR file from the [release page](https://github.com/Tripp1e/IslesHelper/releases).
-3. Place the mod JAR file into the "mods" folder in your Minecraft installation directory.
-4. Launch the Minecraft Launcher with the Fabric profile.
+2. Download the mod JAR file from the [release page](https://github.com/Tripp1e/IslesHelper/tags).
+3. Dowload [YACL](https://modrinth.com/mod/yacl) and optionally [ModMenu](https://modrinth.com/mod/modmenu).
+4. Place the mods file into the "mods" folder in your Minecraft installation directory.
+5. Launch the Minecraft Launcher with the Fabric profile.
 
 ## Usage
 
@@ -26,6 +27,7 @@ Config via ModMenu.
 ## Notes
 
 This mod is in very early alpha. Feedback and bug reports are welcome.
+It is currently awaiting approval on [Modrinth](https://modrinth.com/mod/isleshelper)
 
 ## Disclaimer
 
@@ -33,5 +35,5 @@ This mod is purely client-side and is intended for use on the Skyblock Isles ser
 
 ## Copyright Notice
 
-This Project uses Code from Skyblocker[https://github.com/SkyblockerMod/](https://github.com/SkyblockerMod/) in ConfigManager.java and GeneralCategory.java
+This Project uses Code from [Skyblocker](https://github.com/SkyblockerMod/) in ConfigManager.java and GeneralCategory.java
 It is modified to fit into my project, which includes changing the Location of certain functions and reducing the complexity.
