@@ -19,21 +19,24 @@ import net.minecraft.client.gui.tooltip.Tooltip;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.text.Text;
 
+import java.io.ObjectInputFilter;
 import java.nio.file.Path;
 
 
 // Modified Code from https://github.com/SkyblockerMod/Skyblocker/blob/master/src/main/java/de/hysky/skyblocker/config/SkyblockerConfigManager.java
 public class ConfigManager {
+
+    // Utils
     private static final Path PATH = FabricLoader.getInstance().getConfigDir().resolve("isleshelper.json");
+    public static ConfigManager get() {return HANDLER.instance();}
+    public static void save() {HANDLER.save();}
+    public static Screen createGUI(Screen parent) {
+        return YetAnotherConfigLib.create(ConfigManager.HANDLER, (defaults, config, builder) -> builder
+                .title(Text.of("IslesHelper Config"))
+                .category(GeneralCategory.create(defaults, config))).generateScreen(parent);
+    }
 
-    // Make Handler
-    public static final ConfigClassHandler<ConfigManager> HANDLER = ConfigClassHandler.createBuilder(ConfigManager.class)
-            .serializer(config -> GsonConfigSerializerBuilder.create(config)
-                    .setPath(PATH)
-                    .setJson5(false)
-                    .build())
-            .build();
-
+    // Init
     public static void init() {
         HANDLER.load();
         ClientCommandRegistrationCallback.EVENT.register(((dispatcher, registryAccess) -> dispatcher.register(ClientCommandManager.literal(IslesHelperClient.MOD_ID))));
@@ -48,15 +51,13 @@ public class ConfigManager {
         });
     }
 
-    public static Screen createGUI(Screen parent) {
-        return YetAnotherConfigLib.create(ConfigManager.HANDLER, (defaults, config, builder) -> builder
-                .title(Text.of("IslesHelper Config"))
-                .category(GeneralCategory.create(defaults, config))).generateScreen(parent);
-    }
-
-    public static void save() {
-        HANDLER.save();
-    }
+    // Make Handler
+    public static final ConfigClassHandler<ConfigManager> HANDLER = ConfigClassHandler.createBuilder(ConfigManager.class)
+            .serializer(config -> GsonConfigSerializerBuilder.create(config)
+                    .setPath(PATH)
+                    .setJson5(false)
+                    .build())
+            .build();
 
     // Categories
     @SerialEntry
