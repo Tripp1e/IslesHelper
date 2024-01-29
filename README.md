@@ -10,7 +10,7 @@ QOL mod for Skyblock Isles that aims to make Boss Rush (more when the actual ser
 
 ## Features
 
-- Frog Belly Explosion Warning
+- Warning when the Platform in the Frog Stomach is about to explode.
 
 ## Installation
 
