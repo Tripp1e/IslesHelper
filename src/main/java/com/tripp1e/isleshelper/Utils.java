@@ -9,9 +9,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.Box;
 
-import static com.tripp1e.isleshelper.IslesHelperClient.LOGGER;
-
-
 public class Utils{
 
 
