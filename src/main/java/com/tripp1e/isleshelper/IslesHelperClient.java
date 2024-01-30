@@ -1,5 +1,6 @@
 package com.tripp1e.isleshelper;
 
+import com.tripp1e.isleshelper.bossrush.frog.EarthQuakeOutline;
 import com.tripp1e.isleshelper.bossrush.frog.StomachWarning;
 import com.tripp1e.isleshelper.config.ConfigManager;
 import net.fabricmc.api.ClientModInitializer;
@@ -22,9 +23,11 @@ public class IslesHelperClient implements ClientModInitializer {
     private void tick() {
         ClientTickEvents.START_CLIENT_TICK.register(client -> {
             if (client.player != null && client.world != null && client.world.isClient) {
-                if (client.world.getRegistryKey().getValue().toString().contains("frog") && ConfigManager.get().general.frogStomachWarning)
-                    StomachWarning.checkPhase(client.player);
-
+                EarthQuakeOutline.makeGlow(client.world);
+                if (client.world.getRegistryKey().getValue().toString().contains("frog")) {
+                    if (ConfigManager.get().general.frogStomachWarning) StomachWarning.checkPhase(client.player);
+                    if (ConfigManager.get().general.frogEarthQuakeOutline) EarthQuakeOutline.makeGlow(client.world);
+                }
             }
         });
     }

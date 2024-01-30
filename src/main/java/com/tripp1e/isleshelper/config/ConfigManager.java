@@ -19,7 +19,6 @@ import net.minecraft.client.gui.tooltip.Tooltip;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.text.Text;
 
-import java.io.ObjectInputFilter;
 import java.nio.file.Path;
 
 
@@ -66,6 +65,9 @@ public class ConfigManager {
     public static class General {
         @SerialEntry
         public boolean frogStomachWarning = true;
+
+        @SerialEntry
+        public boolean frogEarthQuakeOutline = true;
 
     }
 

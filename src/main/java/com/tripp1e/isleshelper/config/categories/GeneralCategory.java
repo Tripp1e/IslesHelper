@@ -15,10 +15,17 @@ public class GeneralCategory {
 
                 //Ungrouped Options
                 .option(Option.<Boolean>createBuilder()
-                        .name(Text.of("Enable Warning for Explosions on "))
+                        .name(Text.of("Warn about explosions in the frog's stomach"))
                         .binding(defaults.general.frogStomachWarning,
                                 () -> config.general.frogStomachWarning,
                                 newValue -> config.general.frogStomachWarning = newValue)
+                        .controller(Utils::createBooleanController)
+                        .build())
+                .option(Option.<Boolean>createBuilder()
+                        .name(Text.of("Highlight incoming earth quake blocks"))
+                        .binding(defaults.general.frogEarthQuakeOutline,
+                                () -> config.general.frogEarthQuakeOutline,
+                                newValue -> config.general.frogEarthQuakeOutline = newValue)
                         .controller(Utils::createBooleanController)
                         .build())
                 .build();
