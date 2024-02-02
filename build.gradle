@@ -11,22 +11,32 @@ base {
 }
 
 repositories {
-	maven {
-		name 'Xander Maven'
-		url 'https://maven.isxander.dev/releases'
-	}
+	mavenCentral()
+	maven { url "https://maven.isxander.dev/releases" }
 	maven { url "https://maven.terraformersmc.com/releases" }
+
+	//Lodestone
+	//maven { url "https://jitpack.io" }
+	//maven { url "https://maven.ladysnake.org/releases" }
+	//maven { url "https://masa.dy.fi/maven" }
+	//maven { url "https://api.modrinth.com/maven" }
+	//maven { url "https://maven.quiltmc.org/repository/release/" }
 }
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	modImplementation "dev.isxander.yacl:yet-another-config-lib-fabric:${project.yacl_version}"
 	modImplementation "com.terraformersmc:modmenu:${project.mod_menu_version}"
 
+	//Lodestone
+	//modImplementation include ("com.github.cph101:Lodestonelib-fabric:${project.lodestone_version}")
+	//modImplementation include("io.github.ladysnake:satin:${project.satin_version}")
+	//modImplementation "maven.modrinth:sodium:${project.sodium_version}"
 }
 
 processResources {
