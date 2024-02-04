@@ -23,9 +23,9 @@ public class GeneralCategory {
                         .build())
                 .option(Option.<Boolean>createBuilder()
                         .name(Text.of("Highlight incoming earth quake blocks"))
-                        .binding(defaults.general.frogEarthQuakeOutline,
-                                () -> config.general.frogEarthQuakeOutline,
-                                newValue -> config.general.frogEarthQuakeOutline = newValue)
+                        .binding(defaults.general.generalTeammateDeathMessage,
+                                () -> config.general.generalTeammateDeathMessage,
+                                newValue -> config.general.generalTeammateDeathMessage = newValue)
                         .controller(Utils::createBooleanController)
                         .build())
                 .build();

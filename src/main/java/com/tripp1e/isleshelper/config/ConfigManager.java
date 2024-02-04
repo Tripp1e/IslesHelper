@@ -63,11 +63,14 @@ public class ConfigManager {
     public General general = new General();
 
     public static class General {
+        //General
+        @SerialEntry
+        public boolean generalTeammateDeathMessage = true;
+
+
+        //Frog
         @SerialEntry
         public boolean frogStomachWarning = true;
-
-        @SerialEntry
-        public boolean frogEarthQuakeOutline = true;
 
     }
 

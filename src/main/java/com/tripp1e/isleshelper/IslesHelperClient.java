@@ -1,7 +1,7 @@
 package com.tripp1e.isleshelper;
 
-import com.tripp1e.isleshelper.bossrush.frog.EarthQuakeOutline;
 import com.tripp1e.isleshelper.bossrush.frog.StomachWarning;
+import com.tripp1e.isleshelper.bossrush.general.DetectTeamDeath;
 import com.tripp1e.isleshelper.config.ConfigManager;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -17,7 +17,6 @@ public class IslesHelperClient implements ClientModInitializer {
         LOGGER.info("Jesser where is the cocainer");
         tick();
         ConfigManager.init();
-        EarthQuakeOutline.makeGlow();
     }
 
 
@@ -25,6 +24,10 @@ public class IslesHelperClient implements ClientModInitializer {
     private void tick() {
         ClientTickEvents.START_CLIENT_TICK.register(client -> {
             if (client.player != null && client.world != null && client.world.isClient) {
+                //General
+                if (ConfigManager.get().general.generalTeammateDeathMessage) DetectTeamDeath.detectDeath();
+
+                //Frog
                 if (client.world.getRegistryKey().getValue().toString().contains("frog")) {
                     if (ConfigManager.get().general.frogStomachWarning) StomachWarning.checkPhase(client.player);
                 }
