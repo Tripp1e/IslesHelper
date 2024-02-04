@@ -1,6 +1,7 @@
 plugins {
 	id 'fabric-loom' version '1.5-SNAPSHOT'
 	id 'maven-publish'
+//	id 'com.modrinth.minotaur' version '2.+'
 }
 
 version = project.mod_version
@@ -29,6 +30,8 @@ dependencies {
 
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+	modImplementation "com.ptsmods:devlogin:3.4.1"
 
 	modImplementation "dev.isxander.yacl:yet-another-config-lib-fabric:${project.yacl_version}"
 	modImplementation "com.terraformersmc:modmenu:${project.mod_menu_version}"
@@ -63,6 +66,28 @@ jar {
 		rename { "${it}_${project.base.archivesName.get()}"}
 	}
 }
+
+//modrinth {
+//	token = System.getenv('MODRINTH_TOKEN')
+//	projectId = project.modrinth_id
+//	versionNumber = "v${project.mod_version}-alpha"
+//	versionName = "Isleshelper ${project.mod_version}-alpha for ${project.minecraft_version}"
+//	uploadFile = remapJar
+//	gameVersions = [project.minecraft_version]
+//	loaders = ["fabric"]
+//	versionType = "release"
+//	dependencies {
+//		required.project "fabric-api"
+//		required.project "yacl"
+//		optional.project "modmenu"
+//	}
+//	changelog = System.getenv('CHANGELOG')
+//	syncBodyFrom = rootProject.file("MRREADME.md").text
+//}
+
+//tasks.modrinth.doLast {
+//	println "::set-output name=url::https://modrinth.com/mod/isleshelper/version/$uploadInfo.id"
+//}
 
 publishing {
 	publications {

@@ -10,7 +10,7 @@ public class DetectTeamDeath {
 
         ServerEntityEvents.ENTITY_LOAD.register((entity, world) -> {
             if (entity instanceof ArmorStandEntity && entity.getCustomName() != null
-                && entity.getCustomName().toString().equalsIgnoreCase("downed"))
+                && entity.getCustomName().toString().toLowerCase().contains("downed"))
                 Utils.sendTitle("Teammate Died",0,60,0);
         });
 
