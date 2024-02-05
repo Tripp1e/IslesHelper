@@ -21,13 +21,23 @@ public class GeneralCategory {
                                 newValue -> config.general.frogStomachWarning = newValue)
                         .controller(Utils::createBooleanController)
                         .build())
+
                 .option(Option.<Boolean>createBuilder()
-                        .name(Text.of("Highlight incoming earth quake blocks"))
+                        .name(Text.of("Notify when Teammate died"))
                         .binding(defaults.general.generalTeammateDeathMessage,
                                 () -> config.general.generalTeammateDeathMessage,
                                 newValue -> config.general.generalTeammateDeathMessage = newValue)
                         .controller(Utils::createBooleanController)
                         .build())
+
+                .option(Option.<Boolean>createBuilder()
+                        .name(Text.of("Only Reveive Party Chats"))
+                        .binding(defaults.general.generalOnlyPartyChats,
+                                () -> config.general.generalOnlyPartyChats,
+                                newValue -> config.general.generalOnlyPartyChats = newValue)
+                        .controller(Utils::createBooleanController)
+                        .build())
+
                 .build();
     }
 

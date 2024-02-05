@@ -66,7 +66,8 @@ public class ConfigManager {
         //General
         @SerialEntry
         public boolean generalTeammateDeathMessage = true;
-
+        @SerialEntry
+        public boolean generalOnlyPartyChats = true;
 
         //Frog
         @SerialEntry

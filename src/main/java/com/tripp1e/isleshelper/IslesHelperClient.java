@@ -1,7 +1,7 @@
 package com.tripp1e.isleshelper;
 
-import com.tripp1e.isleshelper.bossrush.frog.StomachWarning;
-import com.tripp1e.isleshelper.bossrush.general.DetectTeamDeath;
+import com.tripp1e.isleshelper.bossrush.Frog;
+import com.tripp1e.isleshelper.bossrush.General;
 import com.tripp1e.isleshelper.config.ConfigManager;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -25,13 +25,17 @@ public class IslesHelperClient implements ClientModInitializer {
         ClientTickEvents.START_CLIENT_TICK.register(client -> {
             if (client.player != null && client.world != null && client.world.isClient) {
                 //General
-                if (ConfigManager.get().general.generalTeammateDeathMessage) DetectTeamDeath.detectDeath();
+                if (ConfigManager.get().general.generalTeammateDeathMessage) General.teamDeathNotify();
+                if (ConfigManager.get().general.generalOnlyPartyChats) General.onlyPartyMessages();
 
                 //Frog
                 if (client.world.getRegistryKey().getValue().toString().contains("frog")) {
-                    if (ConfigManager.get().general.frogStomachWarning) StomachWarning.checkPhase(client.player);
+                    if (ConfigManager.get().general.frogStomachWarning) Frog.stomachExplodeWarn();
                 }
             }
+        });
+        ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            if (ConfigManager.get().general.generalOnlyPartyChats) General.onlyPartyMessages();
         });
     }
 
