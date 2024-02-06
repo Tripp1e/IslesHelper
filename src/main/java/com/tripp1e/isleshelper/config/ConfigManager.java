@@ -1,12 +1,13 @@
 package com.tripp1e.isleshelper.config;
 
 
+import com.google.gson.FieldNamingPolicy;
 import com.tripp1e.isleshelper.IslesHelperClient;
 import com.tripp1e.isleshelper.config.categories.BossRushCategory;
+import com.tripp1e.isleshelper.config.categories.GeneralCategory;
 import com.tripp1e.isleshelper.mixin.HandledScreenAccessor;
 import dev.isxander.yacl3.api.YetAnotherConfigLib;
 import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
-import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
@@ -18,6 +19,7 @@ import net.minecraft.client.gui.screen.ingame.GenericContainerScreen;
 import net.minecraft.client.gui.tooltip.Tooltip;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 
 import java.nio.file.Path;
 
@@ -27,10 +29,14 @@ public class ConfigManager {
 
     // Utils
     private static final Path PATH = FabricLoader.getInstance().getConfigDir().resolve("isleshelper.json");
-    public static ConfigManager get() {return HANDLER.instance();}
+    public static Config get() {return HANDLER.instance();}
+    public static void save() {
+        HANDLER.save();
+    }
     public static Screen createGUI(Screen parent) {
-        return YetAnotherConfigLib.create(ConfigManager.HANDLER, (defaults, config, builder) -> builder
-                .title(Text.of("IslesHelper Config"))
+        return YetAnotherConfigLib.create(HANDLER, (defaults, config, builder) -> builder
+                .title(Text.of("Isleshelper Config"))
+                .category(GeneralCategory.create(defaults, config))
                 .category(BossRushCategory.create(defaults, config))).generateScreen(parent);
     }
 
@@ -50,37 +56,15 @@ public class ConfigManager {
     }
 
     // Make Handler
-    public static final ConfigClassHandler<ConfigManager> HANDLER = ConfigClassHandler.createBuilder(ConfigManager.class)
+    private static final ConfigClassHandler<Config> HANDLER = ConfigClassHandler.createBuilder(Config.class)
             .serializer(config -> GsonConfigSerializerBuilder.create(config)
                     .setPath(PATH)
                     .setJson5(false)
+                    .appendGsonBuilder(builder -> builder
+                            .setFieldNamingPolicy(FieldNamingPolicy.IDENTITY)
+                            .registerTypeHierarchyAdapter(Identifier.class, new Identifier.Serializer()))
                     .build())
             .build();
-
-    // Categories
-    @SerialEntry
-    public General general = new General();
-
-    public static class General {
-        //General
-        @SerialEntry
-        public boolean generalTeammateDeathMessage = true;
-        @SerialEntry
-        public boolean generalOnlyPartyChats = true;
-
-        //Timer
-        @SerialEntry
-        public boolean generalTimerEnabled = true;
-        @SerialEntry
-        public int generalX = 50;
-        @SerialEntry
-        public int generalY = 100;
-
-        //Frog
-        @SerialEntry
-        public boolean frogStomachWarning = true;
-
-    }
 
 
 

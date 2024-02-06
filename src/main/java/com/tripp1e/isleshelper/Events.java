@@ -1,42 +1,52 @@
 package com.tripp1e.isleshelper;
 
-import com.tripp1e.isleshelper.bossrush.Frog;
-import com.tripp1e.isleshelper.bossrush.General;
+import com.tripp1e.isleshelper.features.bossrush.Frog;
+import com.tripp1e.isleshelper.features.bossrush.General;
 import com.tripp1e.isleshelper.config.ConfigManager;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.util.math.ColorHelper;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 
 public class Events {
-    public static void hudRenderCallback() {
-        HudRenderCallback.EVENT.register((drawContext, tickDelta) -> {
-            if (Utils.getWorld() == null) return;
 
-            //Timer
-            int x = ConfigManager.get().general.generalX;
-            int y = ConfigManager.get().general.generalY;
-            int color = ColorHelper.Argb.getArgb(255, 255, 255, 255);
+    public static void init() {
 
-            if (Utils.isInBoss()) drawContext.drawTextWithShadow(MinecraftClient.getInstance().textRenderer, General.deltaTime, x, y, color);
-            }
-        );
-    }
-
-    public static void startClientTick() {
         ClientTickEvents.START_CLIENT_TICK.register(client -> {
             if (Utils.getWorld() == null) return;
 
             //General
-            if (ConfigManager.get().general.generalTeammateDeathMessage) General.teamDeathNotify();
-            if (ConfigManager.get().general.generalOnlyPartyChats) General.onlyPartyMessages();
-            if (ConfigManager.get().general.generalTimerEnabled) General.timer();
+            if (ConfigManager.get().bossRush.onlyPartyChatsEnabled) General.onlyPartyMessages();
+            if (ConfigManager.get().bossRush.timerEnabled) General.timer(null);
 
             //Frog
             if (Utils.getBoss().equals("frog")) {
-                if (ConfigManager.get().general.frogStomachWarning) Frog.stomachExplodeWarn();
+                if (ConfigManager.get().bossRush.frogStomachWarningEnabled) Frog.stomachExplodeWarn();
             }
+
         });
+
+        HudRenderCallback.EVENT.register((drawContext, tickDelta) -> {
+            if (Utils.getWorld() == null) return;
+            Utils.drawContext = drawContext;
+            if (ConfigManager.get().bossRush.timerEnabled) General.timer(drawContext);
+        });
+
+        ServerEntityEvents.ENTITY_LOAD.register((entity, world) -> {
+            if (Utils.getWorld() == null) return;
+            IslesHelperClient.LOGGER.info("Something loaded: " + entity);
+
+            if (ConfigManager.get().bossRush.teammateDeathMessageEnabled) General.teamDeathNotify(entity);
+            General.timer(Utils.drawContext);
+
+        });
+
+        ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            if (client.player == null) return;
+
+
+
+        });
+
     }
 
 }

@@ -1,7 +1,7 @@
 package com.tripp1e.isleshelper.config.categories;
 
 import com.tripp1e.isleshelper.Utils;
-import com.tripp1e.isleshelper.config.ConfigManager;
+import com.tripp1e.isleshelper.config.Config;
 import dev.isxander.yacl3.api.ConfigCategory;
 import dev.isxander.yacl3.api.Option;
 import dev.isxander.yacl3.api.OptionGroup;
@@ -9,23 +9,23 @@ import net.minecraft.text.Text;
 
 public class BossRushCategory {
 
-    public static ConfigCategory create(ConfigManager defaults, ConfigManager config) {
+    public static ConfigCategory create(Config defaults, Config config) {
         return ConfigCategory.createBuilder()
             .name(Text.of("Boss Rush Options"))
 
             .option(Option.<Boolean>createBuilder()
                 .name(Text.of("Notify when Teammate died"))
-                .binding(defaults.general.generalTeammateDeathMessage,
-                    () -> config.general.generalTeammateDeathMessage,
-                    newValue -> config.general.generalTeammateDeathMessage = newValue)
+                .binding(defaults.bossRush.teammateDeathMessageEnabled,
+                    () -> config.bossRush.teammateDeathMessageEnabled,
+                    newValue -> config.bossRush.teammateDeathMessageEnabled = newValue)
                 .controller(Utils::createBooleanController)
                 .build())
 
             .option(Option.<Boolean>createBuilder()
                 .name(Text.of("Only receive Messages from your Party"))
-                .binding(defaults.general.generalOnlyPartyChats,
-                    () -> config.general.generalOnlyPartyChats,
-                    newValue -> config.general.generalOnlyPartyChats = newValue)
+                .binding(defaults.bossRush.onlyPartyChatsEnabled,
+                    () -> config.bossRush.onlyPartyChatsEnabled,
+                    newValue -> config.bossRush.onlyPartyChatsEnabled = newValue)
                 .controller(Utils::createBooleanController)
                 .build())
 
@@ -35,25 +35,25 @@ public class BossRushCategory {
 
                     .option(Option.<Boolean>createBuilder()
                         .name(Text.of("Time Bossrush Runs?"))
-                        .binding(defaults.general.generalOnlyPartyChats,
-                            () -> config.general.generalOnlyPartyChats,
-                            newValue -> config.general.generalOnlyPartyChats = newValue)
+                        .binding(defaults.bossRush.timerEnabled,
+                            () -> config.bossRush.timerEnabled,
+                            newValue -> config.bossRush.timerEnabled = newValue)
                         .controller(Utils::createBooleanController)
                         .build())
 
                     .option(Option.<Integer>createBuilder()
                         .name(Text.of("X of Timer"))
-                        .binding(defaults.general.generalX,
-                            () -> config.general.generalX,
-                            newValue -> config.general.generalX = newValue)
+                        .binding(defaults.bossRush.timerX,
+                            () -> config.bossRush.timerX,
+                            newValue -> config.bossRush.timerX = newValue)
                         .controller(opt->Utils.createIntegerController(opt, 0, 1000))
                         .build())
 
                     .option(Option.<Integer>createBuilder()
                         .name(Text.of("Y of Timer"))
-                        .binding(defaults.general.generalY,
-                            () -> config.general.generalY,
-                            newValue -> config.general.generalY = newValue)
+                        .binding(defaults.bossRush.timerY,
+                            () -> config.bossRush.timerY,
+                            newValue -> config.bossRush.timerY = newValue)
                         .controller(opt->Utils.createIntegerController(opt, 0, 500))
                         .build())
                     .build())
@@ -64,9 +64,9 @@ public class BossRushCategory {
 
                     .option(Option.<Boolean>createBuilder()
                         .name(Text.of("Warn about explosions in the frog's stomach"))
-                        .binding(defaults.general.frogStomachWarning,
-                            () -> config.general.frogStomachWarning,
-                            newValue -> config.general.frogStomachWarning = newValue)
+                        .binding(defaults.bossRush.frogStomachWarningEnabled,
+                            () -> config.bossRush.frogStomachWarningEnabled,
+                            newValue -> config.bossRush.frogStomachWarningEnabled = newValue)
                         .controller(Utils::createBooleanController)
                         .build())
 

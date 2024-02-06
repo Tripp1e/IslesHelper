@@ -1,6 +1,7 @@
 package com.tripp1e.isleshelper;
 
 import com.tripp1e.isleshelper.config.ConfigManager;
+import com.tripp1e.isleshelper.features.general.HotbarSlotLock;
 import net.fabricmc.api.ClientModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,11 +13,10 @@ public class IslesHelperClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        LOGGER.info("Jesser where is the cocainer");
+        LOGGER.info("Jesser where is the cocainer?!");
         ConfigManager.init();
-
-        Events.hudRenderCallback();
-        Events.startClientTick();
+        Events.init();
+        HotbarSlotLock.init();
     }
 
 }
