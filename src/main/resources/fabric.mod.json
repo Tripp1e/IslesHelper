@@ -11,7 +11,7 @@
 		"sources": "https://github.com/Tripp1e/IslesHelper"
 	},
 	"license": "LGPL-3.0-or-later",
-	"icon": "assets/isleshelper/icon.png",
+	"icon": "icon.png",
 	"environment": "client",
 	"entrypoints": {
 		"client": [
@@ -40,7 +40,7 @@
 				"id": "isleshelper",
 				"name": "Isles Helper",
 				"description": "QoL Mod for Skyblock Isles",
-				"icon": "assets/isleshelper/icon.png"
+				"icon": "icon.png"
 			},
 			"update_checker": true
 		}

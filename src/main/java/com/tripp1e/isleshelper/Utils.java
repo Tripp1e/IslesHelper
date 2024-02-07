@@ -24,6 +24,9 @@ public class Utils{
 
     public static PlayerEntity getPlayer() {return MinecraftClient.getInstance().player;}
     public static World getWorld() {return MinecraftClient.getInstance().world;}
+    public static boolean getNull() {
+        return getPlayer() == null && getWorld() == null;
+    }
     public static InGameHud getHUD() {return MinecraftClient.getInstance().inGameHud;}
     public static Vec3d normalVector = new Vec3d(1.0D,1.0D,1.0D);
     public static Box boxAroundEntity(Entity entity, int radius) {return new Box(entity.getBlockPos().multiply(radius));}

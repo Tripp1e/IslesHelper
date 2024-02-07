@@ -2,13 +2,15 @@
   "required": true,
   "package": "com.tripp1e.isleshelper.mixin",
   "compatibilityLevel": "JAVA_17",
-  "mixins": [
-    "HandledScreenAccessor"
-  ],
   "injectors": {
     "defaultRequire": 1
   },
   "client": [
-    "ClientPlayerEntityMixin"
+    "ClientPlayerEntityMixin",
+    "InGameHudMixin",
+    "MinecraftClientMixin"
+  ],
+  "mixins": [
+    "accessor.TextDisplayEntityAccessor"
   ]
 }
