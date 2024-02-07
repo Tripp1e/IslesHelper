@@ -1,10 +1,3 @@
-# I CANNOT GET RENDERING TO WORK SO FEATURES THAT USE RENDERING WILL NOT HAPPEN FOR NOW
-# IF YOU KNOW HOW TO DO THIS, PLEASE CONTACT ME
----
-
-
-
-
 # Isles Helper
 
 **Version:** 1.20.4
@@ -18,6 +11,11 @@ QOL mod for Skyblock Isles that aims to make Boss Rush (more when the actual ser
 ## Features
 
 - Warning when the Platform in the Frog Stomach is about to explode.
+- Hotbar Slot Locking
+- Timer for Boss Rush Bosses
+- [WIP] Only Receive Messages from Party Members
+- [WIP] Get Notified when a Teammate dies
+- [TODO] Magma Bomb Warning in Fafnir
 
 ## Installation
 
@@ -42,5 +40,12 @@ This mod is purely client-side and is intended for use on the Skyblock Isles ser
 
 ## Copyright Notice
 
-This Project uses Code from [Skyblocker](https://github.com/SkyblockerMod/) in ConfigManager.java and GeneralCategory.java
+This Project uses Code from [Skyblocker](https://github.com/SkyblockerMod/) in 
+
+- ConfigManager.java
+- GeneralCategory.java
+- ClientPlayerEntityMixin.java
+- InGameHudMixin.java
+- HotbarSlotLock.java
+
 It is modified to fit into my project, which includes changing the Location of certain functions and reducing the complexity.
