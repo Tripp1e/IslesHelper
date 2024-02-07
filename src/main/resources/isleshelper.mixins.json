@@ -9,8 +9,5 @@
     "ClientPlayerEntityMixin",
     "InGameHudMixin",
     "MinecraftClientMixin"
-  ],
-  "mixins": [
-    "accessor.TextDisplayEntityAccessor"
   ]
 }
