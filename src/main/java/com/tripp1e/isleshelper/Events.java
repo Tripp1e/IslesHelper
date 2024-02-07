@@ -30,7 +30,7 @@ public class Events {
             if (Utils.getNull()) return;
 
             Utils.drawContext = drawContext;
-            Renderer.renderer.drawString(drawContext.getMatrices(), General.deltaTime, ConfigManager.get().bossRush.timerX, ConfigManager.get().bossRush.timerY, 1, 1, 1, 1);
+            if(Utils.isInBoss() && ConfigManager.get().bossRush.timerEnabled) Renderer.renderer.drawString(drawContext.getMatrices(), General.deltaTime, ConfigManager.get().bossRush.timerX, ConfigManager.get().bossRush.timerY, 1, 1, 1, 1);
 
         });
 
