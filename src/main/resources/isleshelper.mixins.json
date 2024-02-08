@@ -8,6 +8,7 @@
   "client": [
     "ClientPlayerEntityMixin",
     "InGameHudMixin",
-    "MinecraftClientMixin"
+    "MinecraftClientMixin",
+    "accessor.BossBarHudAccessor"
   ]
 }

@@ -1,5 +1,6 @@
 package com.tripp1e.isleshelper;
 
+import com.tripp1e.isleshelper.mixin.accessor.BossBarHudAccessor;
 import dev.isxander.yacl3.api.Option;
 import dev.isxander.yacl3.api.controller.BooleanControllerBuilder;
 import dev.isxander.yacl3.api.controller.IntegerSliderControllerBuilder;
@@ -34,9 +35,14 @@ public class Utils{
     }
 
     public static boolean isInBoss() {
-        return bosses.stream()
-        .anyMatch(e -> getWorld().getRegistryKey().getValue().toString().contains(e));
+        return ((BossBarHudAccessor)MinecraftClient.getInstance().inGameHud.getBossBarHud())
+                .getBossbars()
+                .values()
+                .stream()
+                .map(bossBar -> bossBar.getName().toString().toLowerCase())
+                .anyMatch(bossbarString -> bosses.stream().anyMatch(bossbarString::contains));
     }
+
 
     public static void sendTitle(String title, int fade, int stay, int leave) {
         getHUD().setTitleTicks(fade, stay, leave);

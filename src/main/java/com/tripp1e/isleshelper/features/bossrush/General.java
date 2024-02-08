@@ -26,7 +26,12 @@ public class General {
     public static void timer() {
         double currentTime = System.currentTimeMillis();
         startTime = Utils.isInBoss() ? startTime : currentTime;
-        deltaTime = (currentTime - startTime)/1000D + "";
+        if(Utils.isInBoss()) deltaTime = (currentTime - startTime)/1000D+"";
+
+        if (!Utils.isInBoss() && !deltaTime.equals("0.0")){
+            Utils.sendTitle("Your Time was: " + deltaTime, 5, 100, 5);
+            deltaTime = "0.0";
+        }
     }
 
 }

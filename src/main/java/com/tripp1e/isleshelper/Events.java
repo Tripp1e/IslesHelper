@@ -7,6 +7,7 @@ import com.tripp1e.isleshelper.rendering.Renderer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientEntityEvents;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
+import net.minecraft.entity.decoration.InteractionEntity;
 
 public class Events {
 
@@ -36,8 +37,12 @@ public class Events {
 
         ClientEntityEvents.ENTITY_LOAD.register(((entity, world) -> {
             if (Utils.getNull()) return;
+            if (entity instanceof InteractionEntity) {
+                IslesHelperClient.LOGGER.info("CustomName: " + entity.getName());
+            }
 
-            if (ConfigManager.get().bossRush.teammateDeathMessageEnabled) General.teamDeathNotify(entity);
+                if (ConfigManager.get().bossRush.teammateDeathMessageEnabled) General.teamDeathNotify(entity);
+
 
         }));
 
