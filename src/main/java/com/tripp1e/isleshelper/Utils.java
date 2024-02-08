@@ -11,7 +11,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class Utils{
@@ -21,14 +20,14 @@ public class Utils{
     public static boolean getNull() { return getPlayer() == null || getWorld() == null;}
     public static InGameHud getHUD() {return MinecraftClient.getInstance().inGameHud;}
     public static DrawContext drawContext = null;
-    public static List<String> bosses = Arrays.asList("reaper", "queen", "nanook", "frog", "turtle", "dragon");
+    public static List<String> bosses = List.of("reaper", "queen", "nanook", "frog", "turtle", "dragon");
+    public static List<String> ranks = List.of("\uD83D\uDC09");
 
     public static String getBoss() {
         return bosses.stream()
                 .filter(e -> getWorld().getRegistryKey().getValue().toString().contains(e))
                 .findFirst().orElse("none");
     }
-
     public static String getBossType() {
         String registryValue = getWorld().getRegistryKey().getValue().toString();
         return registryValue.contains("rookie") ? "rookie" : (registryValue.contains("expert") ? "expert" : "other");

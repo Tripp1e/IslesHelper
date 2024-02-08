@@ -13,6 +13,14 @@ public class GeneralCategory {
         return ConfigCategory.createBuilder()
                 .name(Text.of("General Options"))
 
+                .option(Option.<Boolean>createBuilder()
+                    .name(Text.of("Only receive Messages from your Party"))
+                    .binding(defaults.general.onlyPartyChatsEnabled,
+                        () -> config.general.onlyPartyChatsEnabled,
+                        newValue -> config.general.onlyPartyChatsEnabled = newValue)
+                    .controller(Utils::createBooleanController)
+                    .build())
+
                 .group(OptionGroup.createBuilder()
                         .name(Text.of("Hotbar Slot Locking Options"))
                         .collapsed(false)

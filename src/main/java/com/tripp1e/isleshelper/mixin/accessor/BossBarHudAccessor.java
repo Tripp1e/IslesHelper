@@ -9,7 +9,6 @@ import java.util.UUID;
 
 @Mixin(net.minecraft.client.gui.hud.BossBarHud.class)
 public interface BossBarHudAccessor {
-
     @Accessor("bossBars")
     Map<UUID, ClientBossBar> getBossbars();
 

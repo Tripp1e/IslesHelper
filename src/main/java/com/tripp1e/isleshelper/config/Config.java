@@ -1,7 +1,6 @@
 package com.tripp1e.isleshelper.config;
 
 import dev.isxander.yacl3.config.v2.api.SerialEntry;
-import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +21,7 @@ public class Config {
         public List<Integer> lockedSlots = new ArrayList<>();
 
         @SerialEntry
-        public ObjectOpenHashSet<String> protectedItems = new ObjectOpenHashSet<>();
+        public boolean onlyPartyChatsEnabled = true;
 
     }
 
@@ -30,8 +29,6 @@ public class Config {
         //General
         @SerialEntry
         public boolean teammateDeathMessageEnabled = true;
-        @SerialEntry
-        public boolean onlyPartyChatsEnabled = true;
 
         //Timer
         @SerialEntry

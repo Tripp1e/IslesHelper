@@ -21,14 +21,6 @@ public class BossRushCategory {
                 .controller(Utils::createBooleanController)
                 .build())
 
-            .option(Option.<Boolean>createBuilder()
-                .name(Text.of("Only receive Messages from your Party"))
-                .binding(defaults.bossRush.onlyPartyChatsEnabled,
-                    () -> config.bossRush.onlyPartyChatsEnabled,
-                    newValue -> config.bossRush.onlyPartyChatsEnabled = newValue)
-                .controller(Utils::createBooleanController)
-                .build())
-
             .group(OptionGroup.createBuilder()
                 .name(Text.of("Timer Options"))
                 .collapsed(true)
