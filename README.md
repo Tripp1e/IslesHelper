@@ -13,7 +13,9 @@ QOL mod for Skyblock Isles that aims to make Boss Rush (more when the actual ser
 - Warning when the Platform in the Frog Stomach is about to explode.
 - Hotbar Slot Locking
 - Timer for Boss Rush Bosses
-- [WIP] Only Receive Messages from Party Members
+- Only Receive Messages from Party Members
+- Button in Main Menu for joining Isles
+- Low Ammo Warning - Customizable Threshholds
 - [WIP] Get Notified when a Teammate dies
 - [TODO] Magma Bomb Warning in Fafnir
 
