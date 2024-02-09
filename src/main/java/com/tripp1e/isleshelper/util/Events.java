@@ -1,9 +1,9 @@
-package com.tripp1e.isleshelper;
+package com.tripp1e.isleshelper.util;
 
 import com.tripp1e.isleshelper.features.bossrush.Frog;
 import com.tripp1e.isleshelper.features.bossrush.GeneralBossRush;
 import com.tripp1e.isleshelper.config.ConfigManager;
-import com.tripp1e.isleshelper.features.general.GeneralIsles;
+import com.tripp1e.isleshelper.features.general.General;
 import com.tripp1e.isleshelper.rendering.Renderer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientEntityEvents;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -39,7 +39,6 @@ public class Events {
         ClientEntityEvents.ENTITY_LOAD.register(((entity, world) -> {
             if (Utils.getNull()) return;
             if (entity instanceof InteractionEntity) {
-                IslesHelperClient.LOGGER.info("CustomName: " + entity.getName());
             }
 
                 if (ConfigManager.get().bossRush.teammateDeathMessageEnabled) GeneralBossRush.teamDeathNotify(entity);
@@ -50,7 +49,7 @@ public class Events {
         ClientReceiveMessageEvents.ALLOW_GAME.register(((message, overlay) -> {
             if (Utils.getNull()) return true;
 
-            if (ConfigManager.get().general.onlyPartyChatsEnabled) return GeneralIsles.onlyPartyMessages(message.getString());
+            if (ConfigManager.get().general.onlyPartyChatsEnabled) return General.onlyPartyMessages(message.getString());
             else return true;
         }));
 

@@ -1,6 +1,6 @@
 package com.tripp1e.isleshelper.config.categories;
 
-import com.tripp1e.isleshelper.Utils;
+import com.tripp1e.isleshelper.util.Utils;
 import com.tripp1e.isleshelper.config.Config;
 import dev.isxander.yacl3.api.ConfigCategory;
 import dev.isxander.yacl3.api.Option;

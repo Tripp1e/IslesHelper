@@ -2,7 +2,7 @@ package com.tripp1e.isleshelper.config;
 
 
 import com.google.gson.FieldNamingPolicy;
-import com.tripp1e.isleshelper.IslesHelperClient;
+import com.tripp1e.isleshelper.IslesHelper;
 import com.tripp1e.isleshelper.config.categories.BossRushCategory;
 import com.tripp1e.isleshelper.config.categories.GeneralCategory;
 import dev.isxander.yacl3.api.YetAnotherConfigLib;
@@ -37,7 +37,7 @@ public class ConfigManager {
     // Init
     public static void init() {
         HANDLER.load();
-        ClientCommandRegistrationCallback.EVENT.register(((dispatcher, registryAccess) -> dispatcher.register(ClientCommandManager.literal(IslesHelperClient.MOD_ID))));
+        ClientCommandRegistrationCallback.EVENT.register(((dispatcher, registryAccess) -> dispatcher.register(ClientCommandManager.literal(IslesHelper.MOD_ID))));
     }
 
     // Make Handler

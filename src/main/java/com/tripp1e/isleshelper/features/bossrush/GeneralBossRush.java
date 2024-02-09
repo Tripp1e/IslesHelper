@@ -1,6 +1,6 @@
 package com.tripp1e.isleshelper.features.bossrush;
 
-import com.tripp1e.isleshelper.Utils;
+import com.tripp1e.isleshelper.util.Utils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.decoration.ArmorStandEntity;
 
@@ -24,7 +24,6 @@ public class GeneralBossRush {
         if (!Utils.isInBoss() && !deltaTime.equals("0.0")){
             Utils.sendTitle("Your Time was: " + deltaTime, 5, 100, 5);
             deltaTime = "0.0";
-            //ASD
         }
     }
 

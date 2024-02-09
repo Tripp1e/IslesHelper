@@ -1,4 +1,4 @@
-package com.tripp1e.isleshelper;
+package com.tripp1e.isleshelper.util;
 
 import com.tripp1e.isleshelper.mixin.accessor.BossBarHudAccessor;
 import dev.isxander.yacl3.api.Option;
@@ -7,21 +7,24 @@ import dev.isxander.yacl3.api.controller.IntegerSliderControllerBuilder;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
+import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
-import java.util.List;
+
+import static com.tripp1e.isleshelper.util.Icons.bosses;
 
 public class Utils{
 
     public static PlayerEntity getPlayer() {return MinecraftClient.getInstance().player;}
     public static World getWorld() {return MinecraftClient.getInstance().world;}
     public static boolean getNull() { return getPlayer() == null || getWorld() == null;}
+        public static ClientPlayNetworkHandler getNetworkhandler() {return MinecraftClient.getInstance().getNetworkHandler();}
+    public static boolean onIsles() {
+        return getNetworkhandler() != null && getNetworkhandler().getConnection().getAddress().toString().contains("play.skyblockisles.net");}
     public static InGameHud getHUD() {return MinecraftClient.getInstance().inGameHud;}
     public static DrawContext drawContext = null;
-    public static List<String> bosses = List.of("reaper", "queen", "nanook", "frog", "turtle", "dragon");
-    public static List<String> ranks = List.of("\uD83D\uDC09");
 
     public static String getBoss() {
         return bosses.stream()

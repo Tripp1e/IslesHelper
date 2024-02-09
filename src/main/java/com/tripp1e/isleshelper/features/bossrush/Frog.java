@@ -1,6 +1,6 @@
 package com.tripp1e.isleshelper.features.bossrush;
 
-import com.tripp1e.isleshelper.Utils;
+import com.tripp1e.isleshelper.util.Utils;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 

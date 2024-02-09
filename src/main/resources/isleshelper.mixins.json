@@ -9,6 +9,9 @@
     "ClientPlayerEntityMixin",
     "InGameHudMixin",
     "MinecraftClientMixin",
-    "accessor.BossBarHudAccessor"
+    "TitleScreenMixin",
+
+    "accessor.BossBarHudAccessor",
+    "accessor.HandledScreenAccessor"
   ]
 }

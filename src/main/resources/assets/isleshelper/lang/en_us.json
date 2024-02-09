@@ -1,4 +1,5 @@
 {
   "key.category.isleshelper": "Isles Helper",
-  "key.isleshelper.hotbarSlotLock": "Slot Lock"
+  "key.isleshelper.hotbarSlotLock": "Slot Lock",
+  "text.isleshelper.connectButton": "Connect to Isles"
 }

@@ -15,7 +15,7 @@
 	"environment": "client",
 	"entrypoints": {
 		"client": [
-			"com.tripp1e.isleshelper.IslesHelperClient"
+          "com.tripp1e.isleshelper.IslesHelper"
 		],
 		"modmenu": [
 			"com.tripp1e.isleshelper.config.ConfigModManager"
