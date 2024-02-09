@@ -38,6 +38,20 @@ public class Config {
         @SerialEntry
         public int timerY = 100;
 
+        //Low Ammo
+        @SerialEntry
+        public boolean lowAmmoArrowEnabled = true;
+        @SerialEntry
+        public int lowAmmoArrowCount = 0;
+        @SerialEntry
+        public boolean lowAmmoStoneEnabled = true;
+        @SerialEntry
+        public int lowAmmoStoneCount = 0;
+        @SerialEntry
+        public boolean lowAmmoRuneEnabled = true;
+        @SerialEntry
+        public int lowAmmoRuneCount = 0;
+
         //Frog
         @SerialEntry
         public boolean frogStomachWarningEnabled = true;

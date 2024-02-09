@@ -33,7 +33,7 @@ public class TitleScreenMixin extends Screen {
                     new ServerAddress("play.skyblockisles.net", 25565),
                     islesInfo,
                     false);
-        }).build());
+        }).dimensions(MinecraftClient.getInstance().getWindow().getX() / 2,MinecraftClient.getInstance().getWindow().getY() / 2, 100, 20).build());
     }
 
 }

@@ -20,6 +20,7 @@ public class Events {
 
             //General
             if (ConfigManager.get().bossRush.timerEnabled) GeneralBossRush.timer();
+            GeneralBossRush.warnOnLowAmmo();
 
             //Frog
             if (Utils.getBoss().equals("frog")) {

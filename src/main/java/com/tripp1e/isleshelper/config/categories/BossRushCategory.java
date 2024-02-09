@@ -63,6 +63,59 @@ public class BossRushCategory {
                         .build())
 
                     .build())
+                .group(OptionGroup.createBuilder()
+                    .name(Text.of("Low Ammo Warn Options"))
+                    .collapsed(true)
+
+                        .option(Option.<Boolean>createBuilder()
+                            .name(Text.of("Warn about Low Arrows"))
+                            .binding(defaults.bossRush.lowAmmoArrowEnabled,
+                                ()-> config.bossRush.lowAmmoArrowEnabled,
+                                newValue -> config.bossRush.lowAmmoArrowEnabled = newValue)
+                            .controller(Utils::createBooleanController)
+                            .build())
+
+                        .option(Option.<Integer>createBuilder()
+                                .name(Text.of("Threshhold for Low Arrows"))
+                                .binding(defaults.bossRush.lowAmmoArrowCount,
+                                        ()-> config.bossRush.lowAmmoArrowCount,
+                                        newValue -> config.bossRush.lowAmmoArrowCount = newValue)
+                                .controller(opt->Utils.createIntegerController(opt, 0, 256))
+                                .build())
+
+                        .option(Option.<Boolean>createBuilder()
+                            .name(Text.of("Warn about Low Stones"))
+                            .binding(defaults.bossRush.lowAmmoStoneEnabled,
+                                ()-> config.bossRush.lowAmmoStoneEnabled,
+                                newValue -> config.bossRush.lowAmmoStoneEnabled = newValue)
+                            .controller(Utils::createBooleanController)
+                            .build())
+
+                        .option(Option.<Integer>createBuilder()
+                                .name(Text.of("Threshhold for Low Stones"))
+                                .binding(defaults.bossRush.lowAmmoStoneCount,
+                                        ()-> config.bossRush.lowAmmoStoneCount,
+                                        newValue -> config.bossRush.lowAmmoStoneCount = newValue)
+                                .controller(opt->Utils.createIntegerController(opt, 0, 256))
+                                .build())
+
+                        .option(Option.<Boolean>createBuilder()
+                            .name(Text.of("Warn about Low Runes"))
+                            .binding(defaults.bossRush.lowAmmoRuneEnabled,
+                                ()-> config.bossRush.lowAmmoRuneEnabled,
+                                newValue -> config.bossRush.lowAmmoRuneEnabled = newValue)
+                            .controller(Utils::createBooleanController)
+                            .build())
+
+                        .option(Option.<Integer>createBuilder()
+                                .name(Text.of("Threshhold for Low Arrows"))
+                                .binding(defaults.bossRush.lowAmmoRuneCount,
+                                        ()-> config.bossRush.lowAmmoRuneCount,
+                                        newValue -> config.bossRush.lowAmmoRuneCount = newValue)
+                                .controller(opt->Utils.createIntegerController(opt, 0, 256))
+                                .build())
+
+                        .build())
                 .build();
 
 
