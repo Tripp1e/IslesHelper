@@ -2,6 +2,9 @@
 
 **Version:** 1.20.4
 
+# NOTICE
+<p style="color:red;"> Development on this Mod will be haltet for now, since I've started Development on the **offical** Skyblock Isles Mod. </p>
+
 ## Description
 
 This mod is a very early Release. Contact me on Discord if you have any issues or any Feature Requests.
